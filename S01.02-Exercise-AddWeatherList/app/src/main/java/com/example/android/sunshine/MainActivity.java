@@ -17,20 +17,43 @@ package com.example.android.sunshine;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    // TODO (1) Create a field to store the weather display TextView
+    // DONE (1) Create a field to store the weather display TextView
+    private TextView wDisplayTview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forecast);
 
-        // TODO (2) Use findViewById to get a reference to the weather display TextView
+        // DONE (2) Use findViewById to get a reference to the weather display TextView
+        wDisplayTview = (TextView) findViewById(R.id.tv_weather_data);
 
-        // TODO (3) Create an array of Strings that contain fake weather data
+        // DONE (3) Create an array of Strings that contain fake weather data
+        String [] fakeWdata = {
+                "Today, Nov 6 - Partly Cloudy - 16°C / 8°C",
+                "Tomorrow - Sunny - 18°C / 9°C",
+                "Wednesday - Mostly Sunny- 19°C / 11°C",
+                "Thursday - Sunny - 19°C / 10°C",
+                "Friday - Partly Cloudy - 17°C / 9°C",
+                "Saturday - Partly Cloudy - 17°C / 10°C",
+                "Sunday - Partly Cloudy - 18°C / 12°C",
+                "Mon, Nov 13 - Partly Cloudy - 19°C / 12°C",
+                "Tue, Nov 14 - Partly Cloudy - 18°C / 10°C",
+                "Wed, Nov 15 - Scattered Showers - 17°C / 9°C",
+                "Thu, Nov 16 - Partly Cloudy - 18°C / 10°C",
+                "Fri, Nov 17 - Partly Cloudy - 17°C / 9°C",
+                "Sat, Nov 18 - Partly Cloudy - 19°C / 12°C",
+                "Sun, Nov 19 - Partly Cloudy - 18°C / 10°C",
+        };
 
-        // TODO (4) Append each String from the fake weather data array to the TextView
+
+        // DONE (4) Append each String from the fake weather data array to the TextView
+        for (String fakeWd : fakeWdata){
+            wDisplayTview.append(fakeWd +"\n\n\n");
+        }
     }
 }
