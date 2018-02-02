@@ -18,6 +18,7 @@ package com.example.android.sunshine.data;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 
 import com.example.android.sunshine.R;
 
@@ -211,5 +212,15 @@ public final class SunshinePreferences {
         String lastNotificationKey = context.getString(R.string.pref_last_notification);
         editor.putLong(lastNotificationKey, timeOfNotification);
         editor.apply();
+    }
+
+
+    //method: if notifications are enabled
+    public static boolean areNotificationsEnabled(Context context){
+        String notificationsKey = context.getString(R.string.pref_enable_notifications_key);
+        boolean notificationsDisplayDefault = context.getResources().getBoolean(R.bool.show_notifications_by_default);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean areNotificationsEnabled = sharedPreferences.getBoolean(notificationsKey, notificationsDisplayDefault);
+        return areNotificationsEnabled;
     }
 }
